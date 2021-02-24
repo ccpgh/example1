@@ -1,0 +1,12 @@
+
+#ifndef SDBLIB_SDBCOLUMN_H
+#define SDBLIB_SDBCOLUMN_H
+
+namespace sdblib {
+
+enum SDBColumnType { COLUMNTYPE_STRING, COLUMNTYPE_INTEGER, COLUMNTYPE_FLOAT };
+
+}
+
+
+#endif // SDBLIB_SDBCOLUMN_H
