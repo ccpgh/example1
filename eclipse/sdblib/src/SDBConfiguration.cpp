@@ -184,33 +184,30 @@ void SDBConfiguration::setIsUseEnvironment(int argc, char** argv) {
 	}
 }
 
-void SDBConfiguration::setLoggingLevel(int argc, char** argv) { // NYI - fix
+void SDBConfiguration::setLoggingLevel(int argc, char** argv) { // NYI - FIX!!! case.. not doing now ... just removed loops!!!
 	for (int x=1; x<argc; x++) {
-		if (!std::strcmp("-trace", argv[x])) {
-			this->_isLogLevelTrace = true;
-			return;
-		}
-	}
+    
+    const char* argp(argv[x]);
 
-	for (int x=1; x<argc; x++) {
-		if (!std::strcmp("-debug", argv[x])) {
-			this->_isLogLevelDebug = true;
-			return;
-		}
-	}
+    if (!std::strcmp("-trace", argp)) {
+      this->_isLogLevelTrace = true;
+      return;
+    }
 
-	for (int x=1; x<argc; x++) {
-		if (!std::strcmp("-info", argv[x])) {
-			this->_isLogLevelInfo = true;
-			return;
-		}
-	}
+    if (!std::strcmp("-debug", argp)) {
+      this->_isLogLevelDebug = true;
+      return;
+    }
 
-	for (int x=1; x<argc; x++) {
-		if (!std::strcmp("-error", argv[x])) {
-			this->_isLogLevelError = true;
-			return;
-		}
+    if (!std::strcmp("-info", argp)) {
+      this->_isLogLevelInfo = true;
+      return;
+    }
+    
+    if (!std::strcmp("-error", argp)) {
+      this->_isLogLevelError = true;
+      return;
+    }
 	}
 
 	this->_isLogLevelDefault=true;
